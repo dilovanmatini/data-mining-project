@@ -101,4 +101,4 @@ app.get("/api/property-usage-distribution", async (req, res) => {
   }
 });
 
-app.listen(3001, () => console.log("Backend running on port http://localhost:3001"));
+app.listen(3050, () => console.log("Backend running on port http://localhost:3050"));
