@@ -19,16 +19,6 @@ function App() {
           gap: '20px',
           marginBottom: '20px'
         }}>
-          {/* Price by Area with Property Usage dropdown */}
-          <PriceByArea />
-        </div>
-
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(600px, 1fr))', 
-          gap: '20px',
-          marginBottom: '20px'
-        }}>
           {/* Price by Property Type */}
           <PriceByPropertyType />
 
@@ -54,6 +44,16 @@ function App() {
         }}>
           {/* Market Volume by Year */}
           <MarketVolume />
+        </div>
+
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(600px, 1fr))', 
+          gap: '20px',
+          marginBottom: '20px'
+        }}>
+          {/* Price by Area with Property Usage dropdown */}
+          <PriceByArea />
         </div>
 
         {/* Footer */}
