@@ -7,6 +7,10 @@ import { getPriceTrends } from "./routes/priceTrends.js";
 import { getPriceByPropertyType } from "./routes/priceByPropertyType.js";
 import { getMarketVolume } from "./routes/marketVolume.js";
 import { getPropertyUsageDistribution } from "./routes/propertyUsageDistribution.js";
+import { getPropertyTypeDistribution } from "./routes/propertyTypeDistribution.js";
+import { getTopAreasPropertyTypeDistribution } from "./routes/topAreasPropertyTypeDistribution.js";
+import { getAreaPricePopularity } from "./routes/areaPricePopularity.js";
+import { getRoomTypes } from "./routes/roomTypes.js";
 
 dotenv.config();
 
@@ -96,6 +100,54 @@ app.get("/api/property-usage-distribution", async (req, res) => {
     res.json(distributionData);
   } catch (err) {
     console.error("Error in /api/property-usage-distribution:", err);
+    console.error("Error stack:", err.stack);
+    res.status(500).json({ error: "Server error", message: err.message });
+  }
+});
+
+// Property Type Distribution per Area API Route
+app.get("/api/property-type-distribution", async (req, res) => {
+  try {
+    const distributionData = await getPropertyTypeDistribution(db);
+    res.json(distributionData);
+  } catch (err) {
+    console.error("Error in /api/property-type-distribution:", err);
+    console.error("Error stack:", err.stack);
+    res.status(500).json({ error: "Server error", message: err.message });
+  }
+});
+
+// Top 10 Areas by Total Transactions - Property Type Distribution API Route
+app.get("/api/top-areas-property-type-distribution", async (req, res) => {
+  try {
+    const distributionData = await getTopAreasPropertyTypeDistribution(db);
+    res.json(distributionData);
+  } catch (err) {
+    console.error("Error in /api/top-areas-property-type-distribution:", err);
+    console.error("Error stack:", err.stack);
+    res.status(500).json({ error: "Server error", message: err.message });
+  }
+});
+
+// Area Price and Popularity (Bubble Chart) API Route
+app.get("/api/area-price-popularity", async (req, res) => {
+  try {
+    const bubbleData = await getAreaPricePopularity(db);
+    res.json(bubbleData);
+  } catch (err) {
+    console.error("Error in /api/area-price-popularity:", err);
+    console.error("Error stack:", err.stack);
+    res.status(500).json({ error: "Server error", message: err.message });
+  }
+});
+
+// Most Common Room Types API Route
+app.get("/api/room-types", async (req, res) => {
+  try {
+    const roomTypesData = await getRoomTypes(db);
+    res.json(roomTypesData);
+  } catch (err) {
+    console.error("Error in /api/room-types:", err);
     console.error("Error stack:", err.stack);
     res.status(500).json({ error: "Server error", message: err.message });
   }

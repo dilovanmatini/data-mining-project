@@ -3,6 +3,10 @@ import PriceTrends from './components/PriceTrends';
 import PriceByPropertyType from './components/PriceByPropertyType';
 import MarketVolume from './components/MarketVolume';
 import PropertyUsageDistribution from './components/PropertyUsageDistribution';
+import PropertyTypeDistribution from './components/PropertyTypeDistribution';
+import TopAreasPropertyTypeDistribution from './components/TopAreasPropertyTypeDistribution';
+import AreaPricePopularity from './components/AreaPricePopularity';
+import RoomTypes from './components/RoomTypes';
 import './App.css';
 
 function App() {
@@ -19,21 +23,20 @@ function App() {
           gap: '20px',
           marginBottom: '20px'
         }}>
-          {/* Price by Property Type */}
-          <PriceByPropertyType />
-
+          {/* Most Common Room Types */}
+          <RoomTypes />
           {/* Property Usage Distribution */}
           <PropertyUsageDistribution />
         </div>
 
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(600px, 1fr))', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(1200px, 1fr))', 
           gap: '20px',
           marginBottom: '20px'
         }}>
-          {/* Price Trends Over Time */}
-          <PriceTrends />
+          {/* Top 10 Areas by Total Transactions - Property Type Distribution */}
+          <TopAreasPropertyTypeDistribution />
         </div>
 
         <div style={{ 

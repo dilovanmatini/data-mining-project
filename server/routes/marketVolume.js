@@ -8,7 +8,7 @@ export const getMarketVolume = async (db) => {
     const [rows] = await db.query(`
       SELECT YEAR(instance_date) AS year, COUNT(*) AS total_sales
       FROM real_estate
-      WHERE instance_date IS NOT NULL
+      WHERE instance_date IS NOT NULL AND YEAR(instance_date) > 1990
       GROUP BY year
       ORDER BY year
     `);
